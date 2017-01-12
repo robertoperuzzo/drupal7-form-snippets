@@ -4,9 +4,17 @@
  * Implements hook_form_FORM_ID_alter().
  */
 function states_form_myformid_alter(&$form, &$form_state, $form_id) {
-  $form['field_automezzo_bollo_periodicit']['#states'] = array(
+  // Checkbox
+  $form['field_destination_1']['#states'] = array(
     'visible' => array(
-      '#edit-field-myfield-flag-und' => array('checked' => TRUE),
+      ':input[name="field_checkbox[und]' => array('checked' => TRUE),
+    ),
+  );
+  
+  // Select 
+  $form['field_destination_2']['#states'] = array(
+    'visible' => array(
+      ':input[name="field_select[und]"]' => array('value' => 'custom'),
     ),
   );
 }
